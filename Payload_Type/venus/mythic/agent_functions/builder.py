@@ -1,4 +1,5 @@
-from PayloadBuilder import *
+from mythic_payloadtype_container.PayloadBuilder import *
+from mythic_payloadtype_container.MythicCommandBase import *
 import asyncio
 import os
 from distutils.dir_util import copy_tree
@@ -66,7 +67,9 @@ class Venus(PayloadType):
         )
     }
 
-    c2_profiles = ["HTTP"]
+    c2_profiles = ["http"]
+    mythic_encrypts = True
+    translation_container = None
 
     async def build(self) -> BuildResponse:
         # this function gets called to create an instance of your payload
@@ -132,6 +135,6 @@ class Venus(PayloadType):
         # ).read()
 
         resp.set_status(status=BuildStatus.Success)
-        resp.message = "Created ZIP archive of VS Code extension files"
+        resp.build_message = "Created ZIP archive of VS Code extension files"
 
         return resp
