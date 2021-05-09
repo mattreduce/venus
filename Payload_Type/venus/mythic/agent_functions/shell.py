@@ -26,12 +26,6 @@ class ShellCommand(CommandBase):
     help_cmd = "shell {command}"
     description = "This uses the execSync() Node.js function to execute arbitrary shell commands."
     version = 1
-    is_exit = False
-    is_file_browse = False
-    is_process_list = False
-    is_download_file = False
-    is_remove_file = False
-    is_upload_file = False
     author = "@mattreduce"
     attackmapping = ["T1059"]
     argument_class = ShellArguments
