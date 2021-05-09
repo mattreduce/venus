@@ -1,4 +1,4 @@
-from CommandBase import *
+from mythic_payloadtype_container.MythicCommandBase import *
 from MythicResponseRPC import *
 import json
 
