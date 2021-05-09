@@ -87,7 +87,7 @@ class Venus(PayloadType):
         for c2 in self.c2info:
             profile = c2.get_c2profile()
 
-            if profile["name"] == "HTTP":
+            if profile["name"] == "http":
                 for key, value in c2.get_parameters_dict().items():
                     modified = modified.replace(key, value)
             else:
