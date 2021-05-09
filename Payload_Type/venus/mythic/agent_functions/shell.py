@@ -31,10 +31,11 @@ class ShellCommand(CommandBase):
     argument_class = ShellArguments
 
     async def create_tasking(self, task: MythicTask) -> MythicTask:
-        resp = await MythicResponseRPC(task).register_artifact(
-            artifact_instance="{}".format(task.args.get_arg("command")),
+        resp = await MythicRPC().execute("create_artifact", task_id=task.id,
+            artifact="{}".format(task.args.get_arg("command")),
             artifact_type="Process Create",
         )
+        task.display_params = task.args.get_arg("command")
         return task
 
     async def process_response(self, response: AgentResponse):
