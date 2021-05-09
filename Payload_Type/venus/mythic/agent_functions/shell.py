@@ -1,5 +1,5 @@
 from mythic_payloadtype_container.MythicCommandBase import *
-from MythicResponseRPC import *
+from mythic_payloadtype_container.MythicRPC import *
 import json
 
 class ShellArguments(TaskArguments):
